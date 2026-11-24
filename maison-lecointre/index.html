@@ -90,7 +90,7 @@ section{scroll-margin-top:70px}
 .tab[aria-selected="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
 .list{list-style:none;padding:0;margin:0}
 .list li{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid rgba(246,235,221,.14);font-size:clamp(18px,2vw,22px);font-family:Fraunces,serif}
-.list li span{font:500 14px Manrope;color:var(--cream-2);text-align:right}
+.list li .n{font:500 14px Manrope;color:var(--cream-2);text-align:right;flex:none}
 .panel[hidden]{display:none}
 .photo{border-radius:var(--r);overflow:hidden;background:var(--cocoa-2);position:relative}
 .photo img{width:100%;height:100%;object-fit:cover}
@@ -202,12 +202,12 @@ footer p{margin:6px 0}
       </div>
       <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
         <ul class="list">
-          <li>Paris-Brest <span data-fr>la signature</span><span data-en>the signature</span></li>
+          <li>Paris-Brest <span class="n"><span data-fr>la signature</span><span data-en>the signature</span></span></li>
           <li><span data-fr>Tarte citron meringuée</span><span data-en>Lemon meringue tart</span></li>
           <li><span data-fr>Tarte au chocolat</span><span data-en>Chocolate tart</span></li>
           <li><span data-fr>Flan pâtissier</span><span data-en>Pastry flan</span></li>
           <li><span data-fr>Forêt-noire</span><span data-en>Black Forest</span></li>
-          <li><span data-fr>Entremets à partager</span><span data-en>Whole cakes to share</span> <span data-fr>sur commande</span><span data-en>to order</span></li>
+          <li><span><span data-fr>Entremets à partager</span><span data-en>Whole cakes to share</span></span> <span class="n"><span data-fr>sur commande</span><span data-en>to order</span></span></li>
         </ul>
       </div>
       <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
@@ -224,7 +224,7 @@ footer p{margin:6px 0}
           <li><span data-fr>Pain suisse jambon-fromage</span><span data-en>Ham &amp; cheese pain suisse</span></li>
           <li>Pain bagnat</li>
           <li><span data-fr>Baguette poulet-curry</span><span data-en>Chicken-curry baguette</span></li>
-          <li><span data-fr>Café &amp; petit-déjeuner</span><span data-en>Coffee &amp; breakfast</span> <span data-fr>au tea-room</span><span data-en>in the tea room</span></li>
+          <li><span><span data-fr>Café &amp; petit-déjeuner</span><span data-en>Coffee &amp; breakfast</span></span> <span class="n"><span data-fr>au tea-room</span><span data-en>in the tea room</span></span></li>
         </ul>
       </div>
       <p class="cap" style="margin-top:14px"><span data-fr>Sélection selon la saison et le jour, à confirmer en boutique.</span><span data-en>Selection varies by season and day; check in store.</span></p>
@@ -341,7 +341,7 @@ footer p{margin:6px 0}
   var tl=gsap.timeline({defaults:{ease:'power3.out'}});
   tl.from('.giant',{yPercent:12,opacity:0,duration:.9})
     .from('.lede, .ctas',{y:18,opacity:0,duration:.6,stagger:.08},'-=.5')
-    .from('#plateZone',{scale:.9,opacity:0,rotate:-40,duration:1.1},'-=.9');
+    .from('#plate',{scale:.85,opacity:0,rotate:-60,duration:1.1,clearProps:'transform,opacity'},'-=.9');
   // the plate keeps turning slowly as you scroll
   gsap.to('.ring-text',{rotate:120,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}});
   ScrollTrigger.batch('.bro, .theme',{start:'top 88%',onEnter:function(b){gsap.from(b,{y:24,opacity:0,duration:.6,stagger:.08,ease:'power3.out',overwrite:true})}});
